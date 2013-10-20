@@ -1,0 +1,30 @@
+--- Makefile.in.orig	2013-10-20 10:50:13.603418638 +0100
++++ Makefile.in	2013-10-20 10:51:58.813327912 +0100
+@@ -4,6 +4,7 @@
+ prefix=@prefix@
+ exec_prefix=@exec_prefix@
+ CONFDIR=@sysconfdir@/@target@
++BINDIR=@bindir@
+ CFLAGS=-DCONF_DIR='"$(CONFDIR)"' -DREAVER_DATABASE='"$(CONFDIR)/reaver.db"' @CFLAGS@
+ LDFLAGS=$(LIBWPS_DIR)/*.o wps/*.o tls/bignum.o tls/libtls.a utils/libutils.a crypto/libcrypto.a lwe/libiw.a @LDFLAGS@
+ 
+@@ -87,8 +88,8 @@
+ install: cleanbin
+ 	if [ ! -d $(CONFDIR) ]; then mkdir -p $(CONFDIR); fi
+ 	if [ ! -e $(CONFDIR)/reaver.db ]; then cp reaver.db $(CONFDIR)/reaver.db && chmod -R a+rw $(CONFDIR); fi
+-	if [ -e wash ]; then cp wash @bindir@/wash; fi
+-	if [ -e reaver ]; then cp reaver @bindir@/reaver; fi
++	if [ -e wash ]; then cp wash $(BINDIR)/wash; fi
++	if [ -e reaver ]; then cp reaver $(BINDIR)/reaver; fi
+ 
+ clean:
+ 	rm -f *~ *.o reaver wash
+@@ -102,7 +103,7 @@
+ 	rm -f Makefile config.h
+ 
+ cleanbin: 
+-	rm -f @bindir@/reaver @bindir@/wash @bindir@/walsh
++	rm -f $(BINDIR)/reaver $(BINDIR)/wash $(BINDIR)/walsh
+ 
+ distclean: cleanbin clean
+ 	rm -rf $(CONFDIR)
