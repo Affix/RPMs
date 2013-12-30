@@ -12,7 +12,7 @@ Name:           rubygem-%{gemname}
 Version:        0.6.1
 Release:        1%{?dist}
 Group:          Development/Languages
-License:        MIT
+License:        ISC
 URL:            rubygems.org/gems/github-markdown
 Source0:        http://rubygems.org/gems/%{gemname}-%{version}.gem
 
