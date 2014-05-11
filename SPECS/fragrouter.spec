@@ -8,8 +8,8 @@ License:	GPL
 URL:		http://packetstormsecurity.com/files/download/15917/fragrouter-1.6.tar.gz
 Source0:	fragrouter-1.6.tar.gz
 
-BuildRequires:	libpcap-devel libnet-devel libnids-devel
-Requires:	libpcap libnet lndis
+BuildRequires:	libpcap-devel libnet-devel
+Requires:	libpcap libnet
 
 %description
 A network intrusion toolkit
